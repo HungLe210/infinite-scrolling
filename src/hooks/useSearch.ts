@@ -1,4 +1,3 @@
-// hooks/useSearchProducts.ts
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Product } from '../components/ProductCard/types';
@@ -32,8 +31,13 @@ export const useSearchProducts = (query: string, pageNumber: number) => {
                     price: product.price,
                     images: product.images
                 }));
+                console.log("Call API:", newProducts);
 
-                setProducts(prev => [...prev, ...newProducts]);
+                if (pageNumber === 1) {
+                    setProducts(newProducts);  // Đặt lại danh sách sản phẩm mới
+                } else {
+                    setProducts(prev => [...prev, ...newProducts]);  // Ghép thêm sản phẩm mới
+                }
                 setHasMore(newProducts.length >= limit);
             } catch (error: any) {
                 setError(error.message);

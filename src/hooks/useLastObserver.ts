@@ -1,7 +1,7 @@
 // hooks/useInfiniteScroll.ts
 import { useRef, useEffect } from 'react';
 
-export const useInfiniteScroll = (hasMore: boolean, loading: boolean, callback: () => void) => {
+export const useLastObserver = (hasMore: boolean, loading: boolean, callback: () => void) => {
     const observer = useRef<IntersectionObserver | null>(null);
     const lastProductRef = useRef<HTMLDivElement | null>(null);
 
