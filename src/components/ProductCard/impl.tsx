@@ -12,8 +12,21 @@ export function ProductCard({ product }: ProductCardProps) {
             <strong>Description:</strong> {product.description} <br />
             <strong>Category:</strong> {product.category}<br />
             <strong>Price: </strong>{product.price}< br />
-            <strong>Image url: </strong>{product.images[0]} < br />
-            <img src={product.images[0]} width={200} height={200} alt="" loading='lazy' />
+            <strong>Images: </strong>
+
+            {Array.isArray(product.images) && product.images.length > 0 ? (
+                <div>
+                    {/* Lặp qua từng phần tử của mảng images và hiển thị URL và img */}
+                    {product.images.map((imageUrl, index) => (
+                        <div key={index}>
+                            <p>Image URL: {imageUrl}</p>
+                            <img src={imageUrl} width={200} height={200} alt={`Product Image ${index}`} loading='lazy' />
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <p>No images available</p>
+            )}
         </div>
     )
 }

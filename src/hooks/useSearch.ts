@@ -31,7 +31,7 @@ export const useSearchProducts = (query: string, pageNumber: number) => {
                     price: product.price,
                     images: product.images
                 }));
-                console.log("Call API:", newProducts);
+                console.log(`Call API: with query : ${query} and page ${pageNumber}`, newProducts);
 
                 if (pageNumber === 1) {
                     setProducts(newProducts);

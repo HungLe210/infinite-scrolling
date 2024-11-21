@@ -38,3 +38,4 @@ src/
 2. Fill out the Search Input to verify the fetching are working as expected.
 ! Searching won't running if input is empty
 Example: phone -> 5 test case: p, ph, pho, phon, phone.
+3. Verify how api is called with test case p by in console.log
