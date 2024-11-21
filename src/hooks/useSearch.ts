@@ -9,8 +9,8 @@ export const useSearchProducts = (query: string, pageNumber: number) => {
     const [hasMore, setHasMore] = useState<boolean>(true);
 
     useEffect(() => {
-        if (query.trim() === '') return; // Don't search if query is empty
-        const fetchProducts = async () => {
+        if (query.trim() === '') return;
+        const searchProducts = async () => {
             setLoading(true);
             setError(null);
             try {
@@ -34,9 +34,9 @@ export const useSearchProducts = (query: string, pageNumber: number) => {
                 console.log("Call API:", newProducts);
 
                 if (pageNumber === 1) {
-                    setProducts(newProducts);  // Đặt lại danh sách sản phẩm mới
+                    setProducts(newProducts);
                 } else {
-                    setProducts(prev => [...prev, ...newProducts]);  // Ghép thêm sản phẩm mới
+                    setProducts(prev => [...prev, ...newProducts]);
                 }
                 setHasMore(newProducts.length >= limit);
             } catch (error: any) {
@@ -46,7 +46,7 @@ export const useSearchProducts = (query: string, pageNumber: number) => {
             }
         };
 
-        fetchProducts();
+        searchProducts();
     }, [query, pageNumber]);
 
     return { products, loading, error, hasMore };
