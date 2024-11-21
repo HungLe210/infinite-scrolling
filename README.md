@@ -11,6 +11,7 @@ This is a basic Vite project setup with React and TypeScript. It is designed to 
 
 ### 1. Clone the Repository
 git clone https://github.com/HungLe210/infinite-scrolling
+cd .\infinite-scrolling\
 
 ### 2. Install Dependencies
 Run the following command to install the necessary dependencies:
